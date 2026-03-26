@@ -24,7 +24,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Smooth scrolling
-document.querySelectorAll('a[href^=\"#"]').forEach(anchor => {
+document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -79,7 +79,7 @@ const skillsObserver = new IntersectionObserver((entries) => {
 
 skillsObserver.observe(skillsSection);
 
-// Contact form handler
+// Contact form handler - Updated to use server API
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -91,9 +91,24 @@ contactForm.addEventListener('submit', function(e) {
     const message = formData.get('message');
     
     if (name && email && message) {
-        // Here you would typically send to a backend or service like EmailJS
-        alert('Thank you for your message! I\'ll get back to you soon at pranavtilekar@email.com');
-        contactForm.reset();
+        // Send to server API
+        fetch('/api/contact', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.message);
+            contactForm.reset();
+          } else {
+            alert('Error sending message. Please try again.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Network error. Please try again later.');
+        });
     } else {
         alert('Please fill all fields.');
     }

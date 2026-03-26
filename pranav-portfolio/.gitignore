@@ -1,0 +1,14 @@
+# Ignore parent Desktop clutter
+*
+
+# But track portfolio files
+!.gitignore
+!TODO.md
+!server.js
+!public/
+!public/**
+
+# OS generated files
+.DS_Store
+Thumbs.db
+

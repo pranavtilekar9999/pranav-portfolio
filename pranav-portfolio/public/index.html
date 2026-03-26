@@ -2,47 +2,220 @@
 <html lang="en"> 
 <head> 
     <meta charset="UTF-8"> 
-    <title>Pranav Portfolio</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Pranav Tilekar | Portfolio</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
     <link rel="stylesheet" href="style.css"> 
 </head> 
 <body> 
 <!-- Navbar --> 
-<nav> 
-    <h2>Pranav</h2> 
-    <ul> 
-        <li><a href="#">Home</a></li> 
-        <li><a href="#">Skills</a></li> 
-        <li><a href="#">Projects</a></li> 
-    </ul> 
+<nav class="navbar"> 
+    <div class="nav-container"> 
+        <h2 class="logo"><i class="fas fa-user"></i> Pranav</h2> 
+        <ul class="nav-menu"> 
+            <li><a href="#home" class="nav-link">Home</a></li> 
+            <li><a href="#about" class="nav-link">About</a></li> 
+            <li><a href="#skills" class="nav-link">Skills</a></li> 
+            <li><a href="#projects" class="nav-link">Projects</a></li> 
+            <li><a href="#testimonials" class="nav-link">Testimonials</a></li> 
+            <li><a href="#contact" class="nav-link">Contact</a></li> 
+        </ul> 
+        <div class="hamburger"> 
+            <span></span> 
+            <span></span> 
+            <span></span> 
+        </div> 
+    </div> 
 </nav> 
+
 <!-- Hero Section --> 
-<section class="hero"> 
-    <h1>👨‍💻 Pranav Tilekar</h1> 
-    <p>Second Year IT Student | DSA Learner</p> 
-    <button onclick="showMsg()">Contact Me</button> 
+<section id="home" class="hero"> 
+    <div class="hero-content"> 
+        <h1 class="hero-title">Hi, I'm <span class="highlight">Pranav Tilekar</span></h1> 
+        <p class="hero-subtitle">Second Year IT Student | Passionate DSA Learner | Full-Stack Enthusiast</p> 
+        <div class="hero-buttons"> 
+            <a href="#projects" class="btn btn-primary">View My Work</a> 
+            <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact Me</a> 
+        </div> 
+    </div> 
 </section> 
+
+<!-- About Section --> 
+<section id="about" class="about"> 
+    <div class="container"> 
+        <h2 class="section-title">About Me</h2> 
+        <div class="about-content"> 
+            <div class="about-text"> 
+                <p>Second-year IT student with strong foundation in Data Structures & Algorithms, C/C++, and modern web technologies. Passionate about building efficient solutions and learning new technologies.</p> 
+                <p>Currently exploring Full-Stack development, IoT projects, and competitive programming.</p> 
+                <div class="about-stats"> 
+                    <div><strong>150+</strong> LeetCode Problems</div> 
+                    <div><strong>3+</strong> Projects</div> 
+                    <div><strong>2nd</strong> Year IT</div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</section> 
+
 <!-- Skills --> 
-<section class="skills"> 
-    <h2>My Skills</h2> 
-    <div class="cards"> 
-        <div class="card">C / C++</div> 
-        <div class="card">Data Structures</div> 
-        <div class="card">HTML & CSS</div> 
-        <div class="card">JavaScript</div> 
+<section id="skills" class="skills"> 
+    <div class="container"> 
+        <h2 class="section-title">My Skills</h2> 
+        <div class="skills-grid"> 
+            <div class="skill-card"> 
+                <i class="fab fa-cuttlefish"></i> 
+                <h3>C / C++</h3> 
+                <div class="skill-bar"> 
+                    <div class="skill-progress" data-width="90"></div> 
+                </div> 
+            </div> 
+            <div class="skill-card"> 
+                <i class="fas fa-sitemap"></i> 
+                <h3>Data Structures</h3> 
+                <div class="skill-bar"> 
+                    <div class="skill-progress" data-width="85"></div> 
+                </div> 
+            </div> 
+            <div class="skill-card"> 
+                <i class="fab fa-html5"></i> 
+                <h3>HTML & CSS</h3> 
+                <div class="skill-bar"> 
+                    <div class="skill-progress" data-width="80"></div> 
+                </div> 
+            </div> 
+            <div class="skill-card"> 
+                <i class="fab fa-js-square"></i> 
+                <h3>JavaScript</h3> 
+                <div class="skill-bar"> 
+                    <div class="skill-progress" data-width="75"></div> 
+                </div> 
+            </div> 
+            <div class="skill-card"> 
+                <i class="fab fa-node-js"></i> 
+                <h3>Node.js</h3> 
+                <div class="skill-bar"> 
+                    <div class="skill-progress" data-width="65"></div> 
+                </div> 
+            </div> 
+            <div class="skill-card"> 
+                <i class="fas fa-database"></i> 
+                <h3>Databases</h3> 
+                <div class="skill-bar"> 
+                    <div class="skill-progress" data-width="60"></div> 
+                </div> 
+            </div> 
+        </div> 
     </div> 
 </section> 
+
 <!-- Projects --> 
-<section class="projects"> 
-    <h2>Projects</h2> 
-    <div class="cards"> 
-        <div class="card">Food Ordering System</div> 
-        <div class="card">NGO Donation Tracker</div> 
-        <div class="card">ESP32 Servo Project</div> 
+<section id="projects" class="projects"> 
+    <div class="container"> 
+        <h2 class="section-title">Featured Projects</h2> 
+        <div class="projects-grid"> 
+            <div class="project-card"> 
+                <img src="images/food-ordering.png" alt="Food Ordering System" /> 
+                <div class="project-info"> 
+                    <h3>Food Ordering System</h3> 
+                    <p>Full-stack food delivery application with user authentication, payment integration, and real-time order tracking.</p> 
+                    <div class="project-tech"> 
+                        <span>React</span> 
+                        <span>Node.js</span> 
+                        <span>MongoDB</span> 
+                    </div> 
+                    <div class="project-links"> 
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a> 
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
+                    </div> 
+                </div> 
+            </div> 
+            <div class="project-card"> 
+                <img src="images/ngo-tracker.png" alt="NGO Tracker" /> 
+                <div class="project-info"> 
+                    <h3>NGO Donation Tracker</h3> 
+                    <p>Transparent donation management system for NGOs with donor dashboard, campaign management, and automated reports.</p> 
+                    <div class="project-tech"> 
+                        <span>Express</span> 
+                        <span>PostgreSQL</span> 
+                        <span>Chart.js</span> 
+                    </div> 
+                    <div class="project-links"> 
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a> 
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
+                    </div> 
+                </div> 
+            </div> 
+            <div class="project-card"> 
+                <img src="images/esp32-servo.png" alt="ESP32 Servo" /> 
+                <div class="project-info"> 
+                    <h3>ESP32 Servo Control</h3> 
+                    <p>IoT project controlling servo motors via ESP32 with web interface and real-time position feedback.</p> 
+                    <div class="project-tech"> 
+                        <span>ESP32</span> 
+                        <span>Arduino</span> 
+                        <span>WebSocket</span> 
+                    </div> 
+                    <div class="project-links"> 
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a> 
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
     </div> 
 </section> 
+
+<!-- Testimonials --> 
+<section id="testimonials" class="testimonials"> 
+    <div class="container"> 
+        <h2 class="section-title">What People Say</h2> 
+        <div class="testimonials-grid"> 
+            <div class="testimonial-card"> 
+                <p>"Pranav's DSA knowledge and problem-solving skills are impressive. Great team player!"</p> 
+                <h4>Prof. Smith</h4> 
+                <span>Professor</span> 
+            </div> 
+            <div class="testimonial-card"> 
+                <p>"Excellent web development skills. Delivered projects on time with clean code."</p> 
+                <h4>John Doe</h4> 
+                <span>Senior Developer</span> 
+            </div> 
+        </div> 
+    </div> 
+</section> 
+
+<!-- Contact --> 
+<section id="contact" class="contact"> 
+    <div class="container"> 
+        <h2 class="section-title">Get In Touch</h2> 
+        <form class="contact-form" id="contactForm"> 
+            <div class="form-group"> 
+                <input type="text" name="name" placeholder="Your Name" required> 
+            </div> 
+            <div class="form-group"> 
+                <input type="email" name="email" placeholder="Your Email" required> 
+            </div> 
+            <div class="form-group"> 
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea> 
+            </div> 
+            <button type="submit" class="btn btn-primary">Send Message</button> 
+        </form> 
+        <div class="contact-info"> 
+            <div><i class="fas fa-envelope"></i> pranavtilekar@email.com</div> 
+            <div><i class="fas fa-phone"></i> +1 (555) 123-4567</div> 
+            <div><i class="fab fa-linkedin"></i> linkedin.com/in/pranavtilekar</div> 
+            <div><i class="fab fa-github"></i> github.com/pranavtilekar9999</div> 
+        </div> 
+    </div> 
+</section> 
+
 <footer> 
-    <p>© 2026 Pranav Tilekar</p> 
+    <div class="container"> 
+        <p>© 2024 Pranav Tilekar. Built with ❤️</p> 
+    </div> 
 </footer> 
+
 <script src="script.js"></script> 
 </body> 
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+
+<h2>Register</h2>
+
+<input id="username" type="text" placeholder="Enter Username"><br><br>
+<input id="password" type="password" placeholder="Enter Password"><br><br>
+<label>
+    <input type="checkbox" id="terms">
+    I agree to Terms & Conditions
+</label><br><br>
+<button type="button" onclick="register()">Register</button>
+
+<p id="msg"></p>
+
+<script>
+function register() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const terms = document.getElementById("terms").checked;
+
+if (!terms) {
+    alert("Please accept Terms & Conditions");
+    return;
+}
+
+  fetch("https://cloths-app.onrender.com/api/auth/register", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ username, password })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("msg").innerText = data.message;
+
+    if (data.message === "User registered") {
+      alert("Registered successfully");
+      window.location.href = "login.html";
+    }
+  })
+  .catch(() => {
+    document.getElementById("msg").innerText = "Server error";
+  });
+}
+</script>
+
+</body>
+</html>

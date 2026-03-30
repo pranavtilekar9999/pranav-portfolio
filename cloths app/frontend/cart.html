@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+</head>
+
+<body>
+
+<h2>Cart</h2>
+
+<div id="cartItems"></div>
+<h3 id="totalPrice"></h3>
+
+<br>
+<button type="button" onclick="placeOrder()">Place Order</button>
+
+<script>
+
+// ✅ GET TOKEN
+const token = localStorage.getItem("token");
+
+// 🔒 Redirect if not logged in
+if (!token) {
+  alert("Login first");
+  window.location.href = "login.html";
+}
+
+// ✅ GET CART
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// ✅ SHOW CART
+function showCart() {
+  let total = 0;
+  let html = "";
+
+  if (cart.length === 0) {
+    document.getElementById("cartItems").innerHTML = "Cart is empty";
+    document.getElementById("totalPrice").innerText = "";
+    return;
+  }
+
+  cart.forEach((item, i) => {
+    total += item.price;
+
+    html += `
+      <p>
+        ${item.name} - ₹${item.price}
+        <button onclick="removeItem(${i})">Remove</button>
+      </p>
+    `;
+  });
+
+  document.getElementById("cartItems").innerHTML = html;
+  document.getElementById("totalPrice").innerText = "Total: ₹" + total;
+}
+
+// ✅ REMOVE ITEM
+function removeItem(i) {
+  cart.splice(i, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  showCart();
+}
+
+// ✅ PLACE ORDER
+function placeOrder() {
+
+  if (cart.length === 0) {
+    alert("Cart is empty");
+    return;
+  }
+
+  fetch("https://cloths-app.onrender.com/api/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + token
+    },
+    body: JSON.stringify({ items: cart })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Order placed successfully");
+
+    // clear cart
+    localStorage.removeItem("cart");
+
+    // redirect
+    window.location.href = "index.html";
+  })
+  .catch(err => {
+    console.log(err);
+    alert("Order failed");
+  });
+}
+
+// ✅ LOAD CART ON PAGE OPEN
+showCart();
+
+</script>
+
+</body>
+</html>
